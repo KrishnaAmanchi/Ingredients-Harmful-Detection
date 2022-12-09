@@ -5,7 +5,8 @@ const router=new express.Router()
 const Ingredient=require("../models/ingredients")
 
 router.get("/ing/findcount",async(req,res)=>{
-    const data=req.body.ings
+    const response=req.body
+    var data = JSON.parse(response); 
     let low=0
     let medium=0
     let high=0
