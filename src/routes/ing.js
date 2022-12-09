@@ -5,8 +5,8 @@ const router=new express.Router()
 const Ingredient=require("../models/ingredients")
 
 router.get("/ing/findcount",async(req,res)=>{
-    const response=req.body
-    var data = JSON.parse(response); 
+    const data=req.body.ings
+     
     let low=0
     let medium=0
     let high=0
@@ -31,7 +31,8 @@ router.get("/ing/findcount",async(req,res)=>{
                 }
             }
             const value=(low*0 + medium*0.5 + high*1)/(low + medium + high)
-            res.status(200).send(value.toString())
+            var arr=[{value:value.toString()}]
+            res.status(200).send(arr)
 
             
         }
