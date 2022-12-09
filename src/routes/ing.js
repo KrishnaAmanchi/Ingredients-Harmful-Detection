@@ -4,7 +4,7 @@ const router=new express.Router()
 
 const Ingredient=require("../models/ingredients")
 
-router.get("/ing/findcount",async(req,res)=>{
+router.post("/ing/findcount",async(req,res)=>{
     const data=req.body.ings
      
     let low=0
