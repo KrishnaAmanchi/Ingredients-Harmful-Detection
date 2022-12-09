@@ -5,7 +5,7 @@ const router=new express.Router()
 const Ingredient=require("../models/ingredients")
 
 router.post("/ing/findcount",async(req,res)=>{
-    const data=req.body.ings
+    var data=req.body
      
     let low=0
     let medium=0
