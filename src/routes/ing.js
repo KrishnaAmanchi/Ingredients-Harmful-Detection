@@ -10,7 +10,7 @@ router.post("/ing/findcount",async(req,res)=>{
     let low=0
     let medium=0
     let high=0
-   
+    
         try{
             
             for(ind=0;ind<data.length;ind=ind+1){
