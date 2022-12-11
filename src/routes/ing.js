@@ -15,7 +15,7 @@ router.post("/ing/findcount",async(req,res)=>{
             
             for(ind=0;ind<data.length;ind=ind+1){
                 
-                let ing=await Ingredient.findLevel((data[ind].name).toLowerCase())
+                let ing=await Ingredient.findLevel(data[ind].name)
                 
                 if(ing.harmful_level=="low"){
                     
