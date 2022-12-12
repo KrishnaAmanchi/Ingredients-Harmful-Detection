@@ -10,12 +10,13 @@ router.post("/ing/findcount",async(req,res)=>{
     let low=0
     let medium=0
     let high=0
-    
+    var arr=[]
         try{
             
             for(ind=0;ind<data.length;ind=ind+1){
-                
-                let ing=await Ingredient.findLevel(data[ind].name)
+                let ing_data=data[ind]
+                for(j=0;j<ing_data.length;j++){
+                let ing=await Ingredient.findLevel(ing_data[j].name)
                 
                 if(ing.harmful_level=="low"){
                     
@@ -31,7 +32,11 @@ router.post("/ing/findcount",async(req,res)=>{
                 }
             }
             const value=(low*0 + medium*0.5 + high*1)/(low + medium + high)
-            var arr=[{value:value.toString()}]
+            const obj={value:value.toString()}
+            arr.push(obj)
+            }
+            
+           
             res.status(200).send(arr)
 
             
