@@ -7,14 +7,15 @@ const Ingredient=require("../models/ingredients")
 router.post("/ing/findcount",async(req,res)=>{
     var data=req.body
      
-    let low=0
-    let medium=0
-    let high=0
+    
     var arr=[]
         try{
             
             for(ind=0;ind<data.length;ind=ind+1){
                 let ing_data=data[ind]
+                let low=0
+                let medium=0
+                let high=0
                 for(j=0;j<ing_data.length;j++){
                 let ing=await Ingredient.findLevel(ing_data[j].name)
                 
@@ -31,8 +32,8 @@ router.post("/ing/findcount",async(req,res)=>{
                     high=high+1
                 }
             }
-            const value=(low*0 + medium*0.5 + high*1)/(low + medium + high)
-            const obj={value:value.toString()}
+            let value=(low*0 + medium*0.5 + high*1)/(low + medium + high)
+            let obj={value:value.toString()}
             arr.push(obj)
             }
             
