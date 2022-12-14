@@ -28,10 +28,14 @@ router.post("/ing/findcount",async(req,res)=>{
                 else if(ing.harmful_level=="medium"){
                    medium=medium+1
                 }
-                else{
+                else if(ing.harmful_level=="high"){
                     high=high+1
                 }
+                
             }
+            console.log(low)
+            console.log(medium)
+            console.log(high)
             let value=(low*0 + medium*0.5 + high*1)/(low + medium + high)
             let obj={value:value.toString()}
             arr.push(obj)
